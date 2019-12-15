@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* div{
+            width: 100px;
+            height: 100px; */
+            /* display: inline; */
+            /* 将块元素转换成行元素（行元素没有办法加宽高-span） */
+            /* display: inline-block; */
+            /* 将块元素转换成行内块元素（兼具行块元素属性）此时body中的回车会造成界面的div间空隙 */
+            /* float: left;
+
+        } */
+        .box div{
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        /* 后代选择器 */
+        .div1{
+            background-color: red;
+        }
+        .div2{
+            background-color: blue;
+        }
+        .div3{
+            background-color: green;
+        }
+        .box{
+            background-color: yellow;
+        }
+        /* p{
+            clear: both; */
+            /* 清除浮动的造成的负面影响-例如float */
+        /* } */
+        .clearfix::after{
+            content: "";
+            /* 配合伪类使用-插入生成内容 */
+            display: block;
+            /* 转回块元素 */
+            clear: both;
+            /* 清除浮动影响 */
+        }
+        /* :::after伪元素 */
+    </style>
+</head>
+<body>
+    <div class="box clearfix">
+        <div class="div1">1</div>
+        <div class="div2">2</div>
+        <div class="div3">3</div>
+        <!-- <p>hello</p> -->
+    </div>
+</body>
+</html>

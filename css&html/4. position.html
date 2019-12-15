@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: relative;
+            /* 相对定位-相对于自己正常应该出现的位置 */
+        }
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* float: right; */
+            position: absolute;
+            /* 绝对定位-以本身之外的第一个主线元素为标准 */
+            /* top: ; */
+            bottom: 0;
+            left: 0;
+        }
+        .btn{
+            position: fixed;
+            right: 200px;
+            bottom: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div1"></div>
+    </div>
+    <div class="btn">返回顶部</div>
+</body>
+</html>
