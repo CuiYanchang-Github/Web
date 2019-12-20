@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script> //BOM-浏览器对象模型-浏览器提供的方法
+    // window.prompt()
+    // confirm()
+    // alert()
+    
+    // window
+
+    // window.setTimeout(function(){ //定时器：倒计时-执行一次
+    //   alert("时间到了！")
+    // },3000) //--3000ms
+    var num = 10
+    var timer = window.setInterval(function(){//定时器：倒计时-执行n次
+      console.log(num)
+      num--
+      if(num==0){
+        clearInterval(timer)
+      }
+    },1000)
+    // var timer2 = setInterval(function(){
+    //   console.log("hello");
+      
+    // },1000)
+    // clearInterval(?)
+    // clearTimeout
+
+
+  </script>
+</body>
+</html>
