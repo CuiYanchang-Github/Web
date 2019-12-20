@@ -18,7 +18,7 @@
       for(var i=0;i<min;i++){
         str+=s1[i]+s2[i]
       }
-      str+=maxStr.substr(min);
+      str+=maxStr.substr(min);//substr()在字符串中抽取从start下标开始的指定数目字符
       return str
     }
     console.log(Merge("123","abc"));
