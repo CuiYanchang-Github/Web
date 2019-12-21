@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <!-- <style>
+        li:nth-child(odd){
+            /* 奇数个 */
+            color: red;
+        }
+        li:nth-child(even){
+            /* 偶数个 */
+            color: red;
+        }
+    </style> -->
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li class="li1">c</li>
+        <li>d</li>
+        <li>e</li>
+    </ul>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul> -->
+    &gt;<!-- > -->
+    &lt;<!-- < -->
+</body>
+<script>
+    // 基本筛选
+
+    // $("li:eq(3)").css({color:"red"})  
+
+    // $("li:even").css({color:"red"}) //偶数
+    // $("li:odd").css({color:"red"}) //奇数
+
+    // $("li:first").css({color:"red"})//只选择当前集合的第一个元素
+    // $("li:last").css({color:"red"})  
+
+    // $("li:gt(1)").css({color:"red"}) //选择所有大于1的缩印   
+    // $("li:lt(1)").css({color:"red"}) //选择所有小于1的缩印   
+
+    $("li:not('.li1')").css({color:"red"}) //选择除了.li1的所有li
+    
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div id="box">hello world</div>
+</body>
+<script>
+    var $box =$("#box");
+    console.log($box.get(0));//把原生对象从jQuery中拿出来
+
+    var oBox = document.getElementById("box");
+    console.log($(oBox));//把原生对象变成jQuery对象
+    
+    
+    
+</script>
+</html>
