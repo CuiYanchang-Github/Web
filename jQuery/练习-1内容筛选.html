@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+  <style>
+    table { 
+      border:1px solid black;
+      border-collapse:collapse;
+      /* 表格默认元素之间有间距，collapse用于消除表格之间的间距 */
+    }
+    div{font:normal 12px/17px Arial;}
+    td { font:normal 12px/17px Arial;padding:2px;width:100px; }
+    th { font:bold 12px/17px Arial;text-align:left;padding:4px;border-bottom:1px solid #333;width:100px;}
+    .selected { background:#FF6500;color:#fff;}
+  </style>
+</head>
+<body>
+  <div>
+    筛选：<input type="text" id="filterName">
+  </div>
+  <table>                   <!-- table表格 二维 有行和列 -->
+      <thead>               <!-- 表头 -->
+        <tr>                <!-- tr表示行 -->
+          <th>姓名</th>      <!-- th/td表示单元格 -->
+          <th>性别</th>
+          <th>暂住地</th>
+        </tr>
+      </thead>
+      <tbody> <!-- 表身 -->
+        <tr><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+        <tr><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+        <tr><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+        <tr><td>找六</td><td>男</td><td>浙江温州</td></tr>
+        <tr><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+        <tr><td>MAXMAN</td><td>女</td><td>浙江杭州</td></tr>
+        <tr><td>王六</td><td>男</td><td>浙江杭州</td></tr>
+        <tr><td>李字</td><td>女</td><td>浙江杭州</td></tr>
+        <tr><td>李四</td><td>男</td><td>湖南长沙</td></tr>
+      </tbody>
+    </table>
+
+</body>
+<script>
+    // 内容筛选
+    // $("#inp").keyup(function(){//keyup表示鼠标键抬起来触发事件
+    //     console.log("hello");
+    // })
+    // $("#inp").keydown(function(){//keyup表示鼠标键抬起来触发事件
+    //     console.log($("#inp").val());
+    // })
+    // $("#inp").keyup(function(){//keyup表示鼠标键抬起来触发事件
+    //     // console.log(this.value);//原生
+    //     console.log($("#inp").val());//jQuery
+    // })
+
+    $("#filterName").keyup(function(){
+      // var inpVal = $("#filterName").val();  //val仅能获取到文本框里的值
+      var inpVal = $(this).val(); 
+      console.log(inpVal);
+      $("tbody tr").css({display:"none"})
+      $("tbody tr:contains("+inpVal+")").css({display:"table-row"}) //contains内容筛选 
+                                                //display:"table-row"作为一个表格行显示
+    })
+</script>
+</html>
