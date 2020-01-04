@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            padding: 20px;
+            margin: 10px;
+            border: 10px solid black;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+        .div1{
+            position: absolute;
+        }
+        .div2{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 600px;
+            width: 600px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2">
+            <div class="box">hello</div>
+        </div>
+    </div>
+</body>
+<script>
+    console.log($(".box").offset());
+    console.log($(".box").offsetParent());//取得离指定元素最近的含有定位信息的祖先元素
+       
+</script>
+</html>

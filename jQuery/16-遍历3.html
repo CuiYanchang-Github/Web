@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li class="active">list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+     </ul>
+</body>
+<script>
+    // $('.active').siblings().css('background-color', 'red');//获取到当前元素的所有兄元素
+
+    // $('.active').add($('ul li').eq(3)).css('background-color', 'red');
+
+    // console.log($('ul').contents());
+
+    // $('li').each(function(index,element){
+    //     console.log(index,element);
+    // })      
+
+    // $('.active').siblings().css({backgroundColor:'red'}); 
+    // $('.active').text("hello world"); 
+
+    // $('.active').siblings().end().text("hello world").css({backgroundColor:'red'}); 
+
+    $('ul').find('.active').css({backgroundColor:'red'}).end().css({background:'blue'});//end()方法回退到上一状态设置样式
+
+    
+
+</script>
+
+</html>

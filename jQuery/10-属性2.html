@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            padding: 20px;
+            margin: 10px;
+            border: 10px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">hello</div>
+</body>
+<script>
+    console.log($(".box").width());
+    console.log($(".box").innerWidth());
+    console.log($(".box").outerWidth(true));
+    console.log($(".box").innerHeight());
+    
+    
+</script>
+</html>

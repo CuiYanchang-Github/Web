@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- <div class="container">
+        <h2>Greetings</h2>
+        <div class="inner">Hello</div>
+        <div class="inner">Goodbye</div>
+    </div> -->
+    <div class="container">
+        <div class="inner first">Hello</div>
+        <div class="inner second">And</div>
+        <div class="inner third">Goodbye</div>
+      </div>
+
+</body>
+<script>
+    // $(".inner").after("<div class='active'>123</div>")
+    // $(".inner").before("<div class='active'>321</div>")
+    
+    // $("<div class='active'>123</div>").insertAfter(".inner")
+
+    // $('.inner').empty();
+    // $('.inner').remove();
+
+    // $('<h2>New heading</h2>').replaceAll('.inner');
+    $('div.second').replaceWith('<h2>New heading</h2>');//div元素并且类名是second
+
+        
+       
+</script>
+</html>
