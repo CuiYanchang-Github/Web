@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div id="one-test" class="a-1 aa">hello</div>
+    <div id="test-two" class="b-1 bb">world</div>
+    <div id="one-div" class="a-11 cc">div-one</div>
+
+</body>
+<script>
+    // 属性选择器
+    // $("#one-test,#one-div").css({color:"red"})
+    // $("[id|=one]").css({color:"red"})
+    // $("[id*=w]").css({color:"red"})//选择包含w的
+    // $("[class~=aa]").css({color:"red"})
+    $("[class$=a]").css({color:"red"})//把class内部名称当做字符串，选择以a结尾的div
+    
+</script>
+</html>

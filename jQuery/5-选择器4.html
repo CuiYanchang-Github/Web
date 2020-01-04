@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div>
+        <p>hello</p>
+    </div>
+    <div>1</div>
+    <div>2</div>
+    <div></div>
+ 
+</body>
+<script>
+    // $("div:empty").css({
+    //     width:"200px",
+    //     height:"200px",
+    //     backgroundColor:"red"
+    // })
+
+    // $("div:has(p)").css({//包括P标签的div
+    //     width:"200px",  //在js中不带""的事变量，带""的都是字符串
+    //     height:"200px",
+    //     backgroundColor:"red"
+    // })
+
+    $("div:parent").css({//选择所有含有子元素或者文本的父级元素
+        width:"200px",  
+        height:"200px",
+        backgroundColor:"red"
+    })
+</script>
+</html>
