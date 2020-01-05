@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <button id="btn">按钮</button>
+</body>
+<script>
+  var oBtn = document.getElementById("btn");
+  var foo = function(){
+    console.log("hello");
+  };
+
+  // oBtn.addEventListener("click",foo);
+  // oBtn.removeEventListener("click",foo);
+
+  $("#btn").on("click",foo);
+  // $("#btn").off("click",foo);
+
+  // $("#btn").one("click",foo);//绑定的事件只触发一次
+
+  $("#btn").trigger("click")//刷新界面直接触发click事件 
+  $("#btn").triggerHandler("click")//刷新界面直接触发当前元素的click绑定事件 
+
+  //js的基本数据类型：string/number/boolean/undefind/null
+  //js的引用数据类型：Array/Object/function
+  //var arr = [1,2,3,4];
+  //var arr = arr2;
+  // arr[0] = "a";
+  // console.log("arr2");//复制的是栈地址，堆地址不发生改变。
+  
+</script>
+
+</html>

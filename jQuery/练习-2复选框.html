@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+  <form action="">
+      <h1>你爱好的运动是？</h1>
+      <input type="checkbox" >足球
+      <input type="checkbox" >排球
+      <input type="checkbox" >篮球
+      <input type="checkbox" >羽毛球
+      <br>
+      <button id="btn-1">全选</button>
+      <button id="btn-2">全不选</button>
+      <button id="btn-3">反选</button>
+  </form>
+     
+  <script>
+    $("#btn-1").click(function(){
+      $(":checkbox").prop("checked",true)//设置表单的选中、被选中-只能获取到原生的属性
+    })
+    $("#btn-2").click(function(){
+      $(":checkbox").prop("checked",false)
+    })
+    $("#btn-3").click(function(){
+      var num = $(":checkbox")
+      num.each(function(index,item){
+        
+      })
+      
+
+      // console.log(num);
+      // console.log($(num[1]));
+      // for(var i=0;i<num.length;i++){
+      //   //方法一；
+      //   // if($(num[i]).prop("checked")){
+      //   //       $(num[i]).prop("checked",false)
+      //   //   }else{
+      //   //     $(num[i]).prop("checked",true)
+      //   // }
+
+      //   //方法二；
+      //   if(num.eq(i).prop("checked")){
+      //     num.eq(i).prop("checked",false)
+      //     }else{
+      //     num.eq(i).prop("checked",true)
+      //   }
+      // }
+    })
+
+    // var arr = [2,3,4,5,6]
+    // arr.forEach(function(item){
+    //   console.log(item);
+    // })
+  </script>
+</body>
+</html>

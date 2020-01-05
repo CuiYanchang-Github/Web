@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js"></script>
+  <style type="text/css">
+    body {
+      font-size: 16px;
+    }
+
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 400px;
+    }
+
+    table td,
+    th {
+      width: 50%;
+      border: 1px solid black;
+      height: 30px;
+    }
+
+    tbody th {
+      background-color: #abc;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2"> 鼠标点击表格就可以编辑</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td class="editable">张三</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="editable">李四</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="editable">王五</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="editable">赵六</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    $(".editable").on("click", function () { //方案一
+      if ($(this).children().length < 1) {
+        $(this).html("<input id=inp value=" + this.innerHTML + ">");
+        $("#inp").focus();
+        $("#inp").on("blur", function () {
+          console.log($(this).val());
+          $(this).parent().html($(this).val());
+        })
+      }
+    })
+    $(".editable").on("keydown","input", function (e) { //键入回车实现功能
+      if (e.keyCode == 13) {
+        $(this).trigger("blur")
+      }
+    })
+    // $(".editable").on("click", function () { //方案二
+    //   if ($(this).children.length > 1) {
+    //     var thisText = $(this).text();
+    //     var $input = $("<input type='text'>")
+    //     $input.val(thisText);
+    //     $(this).text("").append($input);
+    //     $input.focus();
+    //   }
+    // })
+    // $(".editable").on("focusout", function () { //事件委托
+    //   var thisVal = $(this).find(":input").val();
+    //   $(this).text(thisVal);
+    // })
+    // $(".editable").on("keydown", function (e) { //键入回车实现功能
+    //   if (e.keyCode == 13) {
+    //     $(this).trigger("focusout")
+    //   }
+    // })
+  </script>
+</body>
+
+</html>
