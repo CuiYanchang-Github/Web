@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name:["test1","test2","test3"]
+    }  
+
+    console.log(obj)
+    var jsonStr = JSON.stringify(obj);//stringify把对象转换成字符串
+    console.log(jsonStr)
+    var jsonObj = JSON.parse(jsonStr);//parse把字符串转换成对象
+    console.log(jsonObj);
+  </script>
+</body>
+</html>

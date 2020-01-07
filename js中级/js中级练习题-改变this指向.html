@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #div{
+      width: 100px;
+      height: 100px;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="div"></div>
+  <script>
+    //1、写出下列输出结果
+    var x = 10;
+    function test(){
+  　  this.x = 20
+  　　console.log(this.x)
+    }
+    test()  
+    //result:20
+
+    //2、写出下列输出结果
+    var name= "window"
+    var obj = {
+      name:"obj",
+      func1:function() {
+        console.log(this.name);
+        (function(){
+          console.log(this.name)
+        })()//立即执行函数
+      }
+    }
+    obj.func1()
+    //result:obj window
+
+    //3、写出下列结果
+    var name="the window";
+
+    var object={
+        name:"My Object", 
+        getName:function(){
+          return this.name;
+      } 
+    }
+    console.log(object.getName());
+    console.log((object.getName)());
+    console.log((object.getName=object.getName)());
+    //result:My Object  My Object   
+
+    //4、下列代码中当div的点击事件触发时输出的结果是？
+    document.getElementById("div").onclick = function(){
+      console.log(this)
+    };
+    //result:<div id="div"></div>
+
+    //5、请写出下列代码运行结果
+    // var name = "window"
+    // var obj = {
+    //   name:"obj"
+    // }
+    // window.setInterval(function(){
+    //   console.log(this.name)
+    // }, 300)
+    // window.setInterval(function(){
+    //   console.log(this.name)
+    // }.call(obj),300)
+    //result:obj window...
+
+    //6、请补全下列代码
+    function foo(){
+      //补全此处代码实现每隔一秒输出 hello world
+      console.log("hello world");
+      return foo;
+    }
+    window.setInterval(foo(),1000);
+    
+    var i=1;
+    window.setInterval(function(){
+      console.log(i);
+      i++;
+    },1000)
+
+    // 7、补全下列代码实现 1+2+3+4
+    function add(c, d) {
+      return this.a + this.b + c + d;
+    }
+    /*
+      在此补全代码 以两种以上方法实现
+    */
+    // var a = 1;//方法一
+    // var b = 2;
+    // add(3,4);
+    // console.log(add(3,4));
+    
+    var obj = {//方法二
+      a: 1,
+      b: 2
+    }
+    add.call(obj, 3, 4);
+    console.log(add.call(obj,3,4));
+    
+
+    //8、写出下列输出结果
+    function f(){
+      return this.a;
+    }
+
+    var g = f.bind({a:"azerty"});
+    console.log(g()); 
+
+    var h = g.bind({a:'yoo'}); 
+    console.log(h()); 
+
+    var o = {a:37, f:f, g:g, h:h};
+    console.log(o.f(), o.g(), o.h()); 
+    //result:azerty azerty 37  
+
+
+    //9、补全下列代码
+    var o = {prop: 37};
+
+    function independent() {
+      return this.prop;
+    }
+
+    //在此补全代码
+
+    console.log(o.f()); // logs 37
+
+    //10、用call 或 apply 实现bind 方法
+  </script>
+</body>
+</html>

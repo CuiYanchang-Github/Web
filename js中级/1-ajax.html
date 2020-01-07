@@ -26,6 +26,7 @@
       }
       //第二部向服务器发送请求
       xmlhttp.open("GET", "https://api.myjson.com/bins/15d67w", true);
+      //将请求发送到服务器，使用XMLHttpRequest对象的open()和send()方法 true（异步）或 false（同步）
       xmlhttp.send();
       //第三步响应返回结果
       xmlhttp.onreadystatechange = function () {

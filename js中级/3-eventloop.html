@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //js属于单线程执行
+    // var a = 10;
+    // alert("hello");
+    // console.log(a);
+    
+    //event loop 事件循环
+    // 主线程 任务队列
+    //定时函数和ajax 都是异步任务
+    //先运行主线程的任务在执行异步任务（在定时结束后将任务添加到任务队列中并按顺序执行队列中的任务）
+    
+    // var a = 10;
+    // setTimeout(function(){
+    //   console.log("hello");
+    // },1000)
+    // console.log(a);
+    
+    function foo2(str){
+      setTimeout(function(){
+        console.log(str);
+      },1000)
+    }
+    function foo(str,fun){
+      foo2(str);
+    }
+    foo("hello",foo2())
+    
+    // function foo(str,fun){
+    //   setTimeout(function(){
+    //     fun();
+    //   },1000)
+    // }
+    // foo("hello world",function(){
+    //   console.log("hello");
+    // })
+  </script>
+</body>
+</html>

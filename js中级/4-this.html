@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var a = 10;
+    // function foo2() {
+    //   function foo() {
+    //     var a = 20;
+    //     console.log(a);
+    //   }
+    //   foo();
+    // }
+    // foo2()
+
+    // var a = 10;
+    // function foo(){
+    //   console.log(a);
+    //   var a = 20;
+    // }
+    // foo();
+
+    // console.log(a);
+    // var a = 10;
+    //变量提升，js预加载，提升变量定义相当于 var a; a = 10;
+    
+    // foo();
+    // function foo(){
+    //   console.log("abc");
+    // }
+    //函数提升,整体提升
+
+    // console.log(a);
+    // var a = 10;
+    // function a(){
+    //   console.log(11);
+    // }
+    //变量提升优先级高于函数提升
+
+    // console.log(a);
+    // var a = function(){
+    // }
+    
+    //执行上下文 context
+    // console.log(this);
+    // function foo(){
+    //   console.log(this);
+    // }
+    // foo()
+
+    // var name = "aaa";
+    // var obj = {
+    //   name:"bbb",
+    //   showName:function(){
+    //     console.log(this.name);
+    //   }
+    // }
+    // obj.showName()//谁调用函数，this就指向谁--执行上下文context
+
+    var name = "aaa";
+    var obj = {
+      name:"bbb",
+      showName:function(){
+        var _this = this;
+        return function(){
+          console.log(_this.name);
+        }
+      }
+    }
+    obj.showName()();
+    
+  </script>
+</body>
+
+</html>
