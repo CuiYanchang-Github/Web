@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+    <form action="#">
+        <h2>input</h2>
+        <!-- 文本输入框 -->
+        <input type="text" name="username">
+        <!-- 文本输入框提示信息 -->
+        <input type="text" name="username" placeholder="用户名">
+        <!-- 搜索框 -->
+        <input type="search" name="search" placeholder="搜索">
+        <!-- 数字输入框 -->
+        <input type="number" name="age" placeholder="只能输入数字">
+        <!-- 密码输入框 -->
+        <input type="password" name="pwd" placeholder="密码">
+        <!-- 单选框 -->
+        <input type="radio" name="sex" value="man">男
+        <!-- 复选框 -->
+        <input type="checkbox" name="hobby" value="music">音乐
+        <!-- 隐藏域 -->
+        <input type="hidden" name="other-data" value="用户不可见数据">
+        <!-- 上传文件 -->
+        <input type="file" name="file">
+        <!-- 普通按钮 -->
+        <input type="button" name="button" value="普通按钮">
+        <!-- 提交按钮 -->
+        <input type="submit" name="submit" value="立即加入">
+        <!-- 重置按钮 -->
+        <input type="reset" name="reset">
+
+        <h2>textarea</h2>
+        <textarea rows="5" cols="30" placeholder="请输入评论"></textarea>
+        <h2>select</h2>
+        <p>单选</p>
+        <select name="tag">
+            <option value="html" selected>HTML</option>
+            <option value="css">CSS</option>
+            <option value="js">JS</option>
+        </select>
+        <p>多选</p>
+        <select name="tags" multiple="multiple">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="js">JS</option>
+        </select>
+        <h2>label</h2>
+        <h3>包裹表单元素</h3>
+        <label>用户名：<input type="text"></label>
+        <h3>使用for属性关联表单元素的id属性</h3>
+        <label for="username">用户名：</label><input type="text" id="username">
+    </form>
+</body>
+</html>
