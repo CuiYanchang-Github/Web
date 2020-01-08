@@ -1,60 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    #div{
+    #div {
       width: 100px;
       height: 100px;
       background-color: black;
     }
   </style>
 </head>
+
 <body>
   <div id="div"></div>
   <script>
     //1、写出下列输出结果
     var x = 10;
-    function test(){
-  　  this.x = 20
-  　　console.log(this.x)
+
+    function test() {
+      this.x = 20 //window.this = 20
+      console.log(this.x)
     }
-    test()  
+    test()
     //result:20
 
     //2、写出下列输出结果
-    var name= "window"
+    var name = "window"
     var obj = {
-      name:"obj",
-      func1:function() {
+      name: "obj",
+      func1: function () {
         console.log(this.name);
-        (function(){
+        (function () {
           console.log(this.name)
-        })()//立即执行函数
+        })() //立即执行函数
       }
     }
     obj.func1()
     //result:obj window
 
     //3、写出下列结果
-    var name="the window";
+    var name = "the window";
 
-    var object={
-        name:"My Object", 
-        getName:function(){
-          return this.name;
-      } 
+    var object = {
+      name: "My Object",
+      getName: function () {
+        return this.name;
+      }
     }
     console.log(object.getName());
-    console.log((object.getName)());
-    console.log((object.getName=object.getName)());
-    //result:My Object  My Object   
+    console.log((object.getName)()); //不是引用就是一段表达式（优先级一样，加不加括号没有较大差别）
+    console.log((object.getName = object.getName)());
+    //赋值表达式等同于object.getName=function(){
+    // return this.name;
+    // }()
+    //result:My Object  My Object   the window
 
     //4、下列代码中当div的点击事件触发时输出的结果是？
-    document.getElementById("div").onclick = function(){
+    document.getElementById("div").onclick = function () {
       console.log(this)
     };
     //result:<div id="div"></div>
@@ -71,20 +77,34 @@
     //   console.log(this.name)
     // }.call(obj),300)
     //result:obj window...
+    function foo() {
+      console.log("123");
+    }
+    var str = foo();
+    console.log(str);
+
 
     //6、请补全下列代码
-    function foo(){
-      //补全此处代码实现每隔一秒输出 hello world
-      console.log("hello world");
-      return foo;
-    }
-    window.setInterval(foo(),1000);
-    
-    var i=1;
-    window.setInterval(function(){
-      console.log(i);
-      i++;
-    },1000)
+    // function foo(){//方法一
+    //   //补全此处代码实现每隔一秒输出 hello world
+    //   console.log("hello world");
+    //   return foo;
+    // }
+    // window.setInterval(foo(),1000);
+
+    // function foo(){//方法二
+    // //   //补全此处代码实现每隔一秒输出 hello world
+    //   return function(){
+    //     console.log("hello world");
+    //   }
+    // }
+    // window.setInterval(foo(),1000);
+
+    // var i=1;
+    // window.setInterval(function(){
+    //   console.log(i);
+    //   i++;
+    // },1000)
 
     // 7、补全下列代码实现 1+2+3+4
     function add(c, d) {
@@ -97,43 +117,61 @@
     // var b = 2;
     // add(3,4);
     // console.log(add(3,4));
-    
-    var obj = {//方法二
+
+    var obj = { //方法二
       a: 1,
       b: 2
     }
     add.call(obj, 3, 4);
-    console.log(add.call(obj,3,4));
-    
+    console.log(add.call(obj, 3, 4));
+
 
     //8、写出下列输出结果
-    function f(){
+    function f() {
       return this.a;
     }
+    //bind方法只是绑定了this但是未被执行,所有后要接()进行方法的调用
+    var g = f.bind({
+      a: "azerty"
+    });
+    console.log(g());
 
-    var g = f.bind({a:"azerty"});
-    console.log(g()); 
+    var h = g.bind({
+      a: 'yoo'
+    });
+    console.log(h());
+    //相当于var h = f.bind({a:"azerty"}).bind({a:'yoo'});//bind方法只能绑定一次，多次bind只识别第一次bind的结果
 
-    var h = g.bind({a:'yoo'}); 
-    console.log(h()); 
-
-    var o = {a:37, f:f, g:g, h:h};
-    console.log(o.f(), o.g(), o.h()); 
+    var o = {
+      a: 37,
+      f: f,
+      g: g,
+      h: h
+    };
+    console.log(o.f(), o.g(), o.h());
     //result:azerty azerty 37  
 
 
     //9、补全下列代码
-    var o = {prop: 37};
+    var o = {
+      prop: 37
+    };
 
     function independent() {
       return this.prop;
     }
 
     //在此补全代码
-
+    o.f = function () {
+      return (independent.call(o));
+    }
     console.log(o.f()); // logs 37
 
     //10、用call 或 apply 实现bind 方法
+    Function.prototype.bind2 = function(){
+      //bind方法只能绑定一次，多次bind只识别第一次bind的结果
+    }
   </script>
 </body>
+
 </html>

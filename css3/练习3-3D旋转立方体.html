@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            perspective: 1000px;
+        }
+        .main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -200px;
+            width: 400px;
+            height: 400px;
+            /* transform: translateZ(-50%); */
+            perspective-origin: center center;
+            transform-origin: center center;
+            transform-style: preserve-3d;
+            animation: foo 3s  linear infinite;
+            border: 1px dashed black;
+
+        }
+        .box {
+            /* position: absolute; */
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%); */
+            width: 400px;
+            height: 400px;
+            
+        }
+        @keyframes foo{
+            from{
+                transform:translate(-50%,-50%) rotateY(0deg);
+
+                /* width: 200px; */
+                /* opacity: 1; */
+            }
+            to{
+                transform:translate(-50%,-50%) rotateY(360deg)
+
+            }
+        }
+        .box div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(168, 200, 230, 0.6);
+            /* opacity: 0.9; */
+            /* border: 1px solid black; */
+        }
+        .box div h1{
+            transform: translate(-50%,-50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 100px;
+        }
+        .s_2{
+            transform: translateZ(-400px);
+        }
+        .s_3{
+            transform: rotateX(90deg);
+            transform-origin:bottom;
+        }
+        .s_4{
+            transform: rotateX(-90deg);
+            transform-origin:top;
+        }
+        .s_5{
+            transform: rotateY(90deg);
+            transform-origin:left;
+        }
+        .s_6{
+            transform: rotateY(-90deg);
+            transform-origin:right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <div class="s_1"><h1>1</h1></div>
+            <div class="s_2"><h1>2</h1></div>
+            <div class="s_3"><h1>3</h1></div>
+            <div class="s_4"><h1>4</h1></div>
+            <div class="s_5"><h1>5</h1></div>
+            <div class="s_6"><h1>6</h1></div>
+        </div>
+    </div>
+</body>
+
+</html>
