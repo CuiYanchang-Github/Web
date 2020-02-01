@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    /*  css部分 */
+    // 第一题 实现一个块级元素在另一块级元素中的水平垂直居中（方法尽量多）
+    // 第二题 在页面中实现一个正方形 （方法尽量多）和一个三角形 
+    // 第三题 实现一个两列布局 左边固定200像素宽 右侧自适应（方法尽量多）
+    // 第四题 在页面中绘制两个200*200的正方形 一个满足加入padding:10px后整体宽度仍是200px 另一个加入padding:10px的时候整体宽度位220px;
+    // 第五题 在页面中实现一个三列布局 需求是两边固定中间部分自适应，并且在dom顺序上要求中间部分在左右之前
+    // 背景渐变色实现多行文本下划线 逻辑思维
+    /*
+      例如：
+      <div class="center"></div>
+      <div class="left"></div>
+      <div class="right"></div>
+    */
+    /*  js部分  */
+    // 第一题 （快手）
+    showCa(new String("A"))
+    function showCa(val) {
+      switch (val) {
+        case "a":
+          console.log("a")
+        default:
+          console.log("b")
+      }
+    }
+    //第二题 （快手）
+    var a = { x: 1 }
+    var b = a;
+    a.x = a = { n: 1 }
+    console.log(a);
+    console.log(b);
+    //第三题 （快手）
+    var a = [1, 2, 3, 4, 5, 6]//1,2,3,a,4,5,6
+
+    //第四题 （快手）
+    var x = 1, y = 0, z = 0;
+    function add(x) {
+      return x = x + 1;
+    }
+    y = add(x);
+    function add(x) {
+      return x = x + 3
+    }
+    z = add(x)
+    console.log(x, y, z)
+    //第五题 （快手）
+    var str1 = 123000 //321
+    //第六题 （字节跳动）
+    var length = 10;
+    function fn() {
+      return this.length + 2
+    }
+    var obj = {
+      length: 5,
+      test1: function () {
+        return fn()
+      }
+    }
+    obj.test2 = fn;
+    console.log(obj.test1());
+    console.log(fn() === obj.test2());
+    //第七题（字节跳动）
+    var user=[
+      {id:1,name:'a'},
+      {id:2,name:'b'},
+      {id:3,name:'a'},
+      {id:4,name:'b'}
+    ]
+    unique(user)//a b
+    //第八题（字节跳动）
+    var list = [1,[2,[3,[4,[5],6],7],8],9]; 
+    //输出 1，2，3，4，5，6，7，8，9
+
+    //第九题（字节跳动）
+    const repeatfunc = repeat(console.log,5,500);
+    repeatfunc('hello,wrold');
+    //每隔500毫秒输出一个hello,world 输出5次
+
+    //第十题（字节跳动）
+    console.log(sum(2,3))//5
+    console.log(sum(2)(3))//5
+    //第十一题 （好未来）
+    //输出5-10的随机数字
+
+    // 发一个随机红包，100块钱给10个人。每个人最少分5元。怎么分？(作业帮)
+  function foo(){
+    var n = 10;
+    var sum = 100;
+    var result = [];
+    while (n > 1) { 
+         var randNum= Math.floor(Math.random()*((sum-5*n)+1)+5);
+         console.log(sum,randNum)
+        sum -= randNum;
+        n -= 1;
+        result.push(randNum)
+    }
+    result.push(sum)
+    return result;
+  }
+  console.log(foo());
+
+  // ["1", "2", "3"].map(parseInt)输出什么？
+
+  //美团
+  // add(1,2) => 3
+  // add(1,2)(3) => 6
+  // add(1,2...) => 1+2+3+...
+  // function add(...reg){
+  //          let sum = 0;
+  //          reg.map((item)=>{
+  //           sum+=item
+  //          })
+  //          console.log(sum)
+  //          return function(c){
+  //              console.log(sum+c)
+  //          }
+  //      }
+  //       add(1,2)(3)  
+  </script>
+  
+</body>
+
+</html>
