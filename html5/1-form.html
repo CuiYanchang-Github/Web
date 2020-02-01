@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="xxx.php">
+    <!-- 表单 -->
+    <input type="text" placeholder="请输入用户名" name="username" autofocus autocomplete="off" autofocus>
+    <!-- 同步提交  autofocus autocomplete表示自动提示栏  autofocus表示刷新页面后光标自动选中闪烁 -->
+    <input type="date">
+    <!-- h5提供标签 日期 -->
+    <input type="email" name="" id="">
+    <input type="url" name="" id="">
+    <!-- 对于邮箱和网址有验证功能 -->
+    <input type="number" max="10" min="1" step="2">
+    <!-- 对于数字输入有验证功能 max和min表示最大最小值域 step表示一次增加或减少几 -->
+    <input type="range" max="100" min="50" step="10">
+    <!-- 滑块-可用于音量和视频进度调整用 -->
+    <input type="color" name="" id="">
+    <input type="submit" value="提交">
+
+    <input type="text" list="testlist">
+    <datalist id="testlist">
+      <option value="a">a</option>
+      <option value="b">b</option>
+      <option value="c">c</option>
+    </datalist>
+    <!-- 类似于select下拉列表 且可编辑、有提示效果 -->
+    <button type="button">提交</button>
+
+  </form>
+</body>
+</html>
