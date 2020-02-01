@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>创建表格</title>
+	<style type="text/css">
+        table {
+            width: 500px;
+            border-collapse: collapse;
+        }
+        td,
+        th {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+	<!-- 
+	创建一个成绩单表格，内容如下(需使用thead和tbody区分表头和表格内容)：
+	
+	 姓名    语文    数学   英语 
+     小明    89      90    93 
+     小红    95      91    98 
+     小兰    88      98    90 
+	-->
+	<table>
+		<thead>
+			<!-- 表头内容 -->
+			<tr>
+			    <th>姓名</th>
+			    <th>语文</th>
+			    <th>数学</th>
+			    <th>英语</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- 表体内容 -->
+			<tr>
+			    <td>小明</td>
+			    <td>89</td>
+			    <td>90</td>
+			    <td>93</td>
+			</tr>
+			<tr>
+			    <td>小红</td>
+			    <td>95</td>
+			    <td>91</td>
+			    <td>98</td>
+			</tr>
+			<tr>
+			    <td>小兰</td>
+			    <td>88</td>
+			    <td>98</td>
+			    <td>90</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
