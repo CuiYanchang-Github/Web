@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="oul">
+        <li>
+            <h1>第1行</h1>
+            <h2>第1行信息</h2>
+        </li>
+        <li>
+            <h1>第2行</h1>
+            <h2>第2行信息</h2>
+        </li>
+    </ul>
+    <button id="btn">add</button>
+    <script>
+        var oUl = document.querySelector("#oul");
+        var oBtn = document.querySelector("#btn");
+        var num = 2;
+        oBtn.onclick = function(){
+        //     num++;
+            // var str = "<li>"+
+            //         "<h1 class='active'>第"+num+"行</h1>"+
+            //         "<h2>第"+num+"行信息</h2>"+
+            //         "</li>"
+
+            let str = `<li>
+                    <h1 class='active'>第${num}行</h1>
+                    <h2>第${num}行信息</h2>
+                    </li>`
+            oUl.innerHTML += str; 
+        }
+
+
+        let str = "hello world";
+        console.log(str.indexOf("r"));
+        console.log(str.indexOf("z"));
+        console.log(str.indexOf("hello"));
+        
+        console.log(str.includes("r"));//boolean型
+
+        console.log(str.startsWith("hello"));
+
+        console.log(str.startsWith("ahello"));//判断当前字符串是否以指定字符串开头
+        console.log(str.endsWith("world"));//判断当前字符串是否以指定字符串结尾
+
+
+        function sw(str,s){
+           if(str.indexOf(s)==0){
+               return true;
+           }else{
+               return false;
+           }
+        }
+        console.log(sw(str,"hello"));
+
+
+        String.prototype.sw = function(str){//在原型上新增方法
+            if(str.indexOf(str)==0){
+               return true;
+           }else{
+               return false;
+           }
+        }
+        console.log(str.sw("hello"));
+        
+        
+        // console.log(String.prototype);//原型
+        // console.log(str.__proto__);
+
+        let str1 = "hello";
+        console.log(str1.padStart(10,'abc'));
+        console.log(str1.padEnd(10,'abc'));
+        
+        let str2 = "hello";
+        console.log(str.repeat(3));//复制
+        
+        
+    </script>
+</body>
+</html>

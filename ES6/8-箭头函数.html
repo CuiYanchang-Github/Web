@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function foo(){
+        // }   
+        // let foo1 = function(){
+        // } 
+        // function foo2(a){
+        //     console.log(a);
+        // }
+        // foo(1);
+
+        // let foo = (a)=>{
+        //     console.log(a);
+        // }
+        // foo(1)
+
+        // function foo(a,b){
+        //     return a+b;
+        // }
+        // console.log(foo(1,2));
+
+        // let foo1 = (a,b)=>a+b;//等价于  let foo1 = (a,b)=>{return a+b},仅限于一条语句;
+        // console.log(foo1(1,4));
+        
+        // var name = "小b";
+        // var obj = {
+        //     name:"小a",
+        //     showName:function(){
+        //         console.log(this.name);
+        //         // function foo(){
+        //         //     console.log(this.name);
+        //         // }
+        //         // foo();
+        //         var foo =()=>{//箭头函数中无this，this指向的是定义时所在的对象
+        //             console.log(this.name);
+        //         }
+        //         foo();
+        //     }
+        // }
+        // obj.showName();
+
+        let foo = () =>{//不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest参数代替。
+            console.log(arguments);
+        }
+        foo();
+    </script>
+</body>
+</html>
