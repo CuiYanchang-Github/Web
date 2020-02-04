@@ -16,61 +16,58 @@
     <li>6</li>
   </ul>
   <script>
-    // var aLi = document.getElementsByTagName("li");
-    // console.log(aLi);
-    // console.log(Array.from(aLi));
+    var aLi = document.getElementsByTagName("li");
+    console.log(aLi);
+    console.log(Array.from(aLi));//转换成数组
 
-    //  let json1 = {
-    //   "0":"商品1",
-    //   "1":"商品2",
-    //   length:2
-    // }
-    // console.log(json1);
-    // console.log(Array.from(json1));
+     let json1 = {
+      "0":"商品1",
+      "1":"商品2",
+      length:2
+    }
+    console.log(json1);
+    console.log(Array.from(json1));
     
-    // console.log(Array.of("abc",10,{name:"abc"},true));
+    console.log(Array.of("abc",10,{name:"abc"},true));//将一组值，转换为数组。
 
-    // let arr = [1,2,3,4,5,6,7,8];
+    let arr = [1,2,3,4,5,6,7,8];
+    console.log(arr.copyWithin(4,5,7))
+
+    let arr1 = [1,2,3,4,5,6,7,8];
+    let num = arr1.find(function(val,key,arr){
+     console.log(val,key,arr);
+     return val > 5 
+    })
+    console.log(num);
+
+    let num1 = arr1.findIndex(function(val,key,arr){
+     return val > 5 
+    })
+    console.log(num1);
+
+    let arr2 = ["a","b","c","d","e"];
+    console.log(arr2.fill("xx",1,3));
+
+    let arr3 = new Array(3).fill("a");
+    console.log(arr3);
+
+    let arr4 = ["a","b","c","d","e"];
+    console.log(arr4.includes("c"));
+
+    var str = "hello";
+    console.log(str.indexOf("z"));
     
-    // console.log(arr.copyWithin(4,5,7))
-
-
-    // let arr = [1,2,3,4,5,6,7,8];
-
-    // let num = arr.find(function(val,key,arr){
-    // //  console.log(val,key,arr);
-    //  return val > 5 
-    // })
-    // console.log(num);
-
-    // let num = arr.findIndex(function(val,key,arr){
-    //  return val > 5 
-    // })
-    // console.log(num);
-
-    // let arr = ["a","b","c","d","e"];
-    // console.log(arr.fill("xx",1,3));
-
-    // let arr = new Array(3).fill("a");
-    // console.log(arr);
-
-    // let arr = ["a","b","c","d","e"];
-    // console.log(arr.includes("c"));
-
-    // var str = "hello";
-    // console.log(str.indexOf("z"));
-    
-    let arr = ["a","b","c","d","e"];
+    let arr5 = ["a","b","c","d","e"];
     // for(let i = 0;i<arr.length;i++){
 
     // }
-    for(let val of arr){
+    for(let val of arr5){//输出数组中元素
       console.log(val);
     }
-    for(let key of arr.keys()){
+    for(let key of arr5.keys()){//输出数组中元素索引
       console.log(key);
     }
-    for(let [key,val] of arr.entries()){
+    for(let [key,val] of arr5.entries()){//输出数组中元素及元素索引
       console.log(key,val);
       
     }
