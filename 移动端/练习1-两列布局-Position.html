@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .box{
+            margin-top: 5px;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            position: relative;
+            min-width: 300px;
+        }
+        .left{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 50px;
+            background-color: blue;
+        }
+        .right{
+            height: 50px;
+            background-color: red;
+            margin-left: 210px;
+            /* 通过margin-left在100%中空出210px距离 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left">left</div>
+        <div class="right">right(position)</div>
+    </div>
+</body>
+</html>

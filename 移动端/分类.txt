@@ -1,0 +1,11 @@
+移动端应用：
+
+Native - 下载安装的应用 - 原生 语言：Object c(ios); Java(Android) - 页面 存放于本地
+Web - 使用浏览器打开运行的应用 - web 语言：Html - 受限制于UIwebview - 页面存放于浏览器
+Hybrid - 在原生App中可打开浏览器的Web App - 混合 语言：Object c(ios)+Html - 受限制于UIwebview
+
+现在纯Native App较少了 大都是Hybrid App
+
+Web App：
+    优点 - 开发成本较低；更新快；更新无需通知用户，不需要手动升级；能够跨多个平台和终端
+    缺点 - 临时性入口；无法获取系统级别的通知，提醒，动效等等；用户留存率低；设计受限制诸多；体验较差

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            font-size: 20px;
+        }
+        .div1{
+            height: 5em;
+            width: 5em;
+            /* em相对于距离他最近元素的font-size 1em=10px */
+            background-color: red;
+        }
+        html{
+            font-size: 10px;
+        }
+        .box2{
+            font-size: 100px;
+        }
+        .div2{
+            /* font-size: 100px; */
+            height: 10rem;
+            width: 10rem;
+            /* rem相对于根元素(html)的font-size 1rem=10px */
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div1">hello</div>
+    </div>
+    <div class="box2">
+        <div class="div2">world</div>
+    </div>
+</body>
+</html>

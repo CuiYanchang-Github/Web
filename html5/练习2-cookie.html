@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //设置cookie
+    function setCookie(key,value,date){
+      var timer = new Date();
+      timer.setDate(timer.getDate()+date);
+      document.cookie = key+"="+value+";expires="+timer.toUTCString();
+    }
+    setCookie("fellow-1","37",1);
+    setCookie("fellow-2","38",2);
+    setCookie("fellow-3","39",3);
+    //过去cookie
+    function getCookie(key){
+      var thisCookie = document.cookie;
+      var cookieArr = thisCookie.split(";");
+      console.log(cookieArr);
+      for(var i=0;i<cookieArr.length;i++){
+        var thisArr = cookieArr[i].split("=");
+        // console.log((thisArr));
+        if(key == thisArr[0].trim()){
+          console.log(thisArr[1]);
+        }
+      }
+    }
+    getCookie("fellow-1");
+
+    function delCookie(key){
+      var timer = new Date();
+      timer.setDate(timer.getDate()-1);//把时间调整为过去 相当于删除当前时间
+      document.cookie = key+"=null;expires="+timer.toUTCString();
+    }
+    // delCookie("fellow-1")
+  </script>
+</body>
+
+</html>

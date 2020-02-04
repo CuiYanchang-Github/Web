@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .box{
+            margin: 0 200px;
+            /* 保证主元素的宽度 */
+            margin-top: 5px;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+        }
+        .left,.right{
+            float: left;
+            width: 200px;
+            height: 50px;
+        }
+        .center{
+            float: left;
+            width: 100%;
+            background-color: red;
+        }
+        .left{
+            background-color: blue;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+        .right{
+            background-color: black;
+            margin-left: -200px;
+            position: relative;
+            right: -200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="center">center(圣杯布局)</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>

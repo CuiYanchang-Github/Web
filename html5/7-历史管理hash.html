@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <p id="num"></p>
+  <button id="btn">change</button>
+  <script>
+    var oBtn = document.querySelector("#btn");
+    var oNum = document.querySelector("#num");
+    var obj = {}
+    oBtn.onclick = function () {
+      var arr = [];
+      for (var i = 0; i < 5; i++) {
+        arr.push(Math.ceil(Math.random() * 10));
+      }
+      oNum.innerText = arr;
+      var ran = Math.random();
+      location.hash = ran;//哈希记录 实现上下页功能
+      obj[location.hash] = arr;
+    }
+
+    window.onhashchange = function(){
+      console.log(obj[location.hash]);
+      
+    }
+  </script>
+</body>
+
+</html>

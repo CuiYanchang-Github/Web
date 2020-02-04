@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //存储空间：cookie-4k  ;localStorage、sessionStorage-5M
+
+    // localStorage.setItem("fellow1","37");
+    // localStorage.setItem("fellow2","37");
+    // localStorage.fellow3 = "hello";
+    // console.log(localStorage.fellow1);
+    // console.log(localStorage.getItem("fellow2"));
+    // localStorage.removeItem("fellow3");
+    // localStorage.clear();
+
+    sessionStorage.setItem("fellow","37");
+    console.log(sessionStorage.getItem("fellow"));
+
+    //区别：sessionStorage浏览器关闭后值消失，临时性；localStorage浏览器关闭后值保留，永久性
+  </script>
+</body>
+
+</html>

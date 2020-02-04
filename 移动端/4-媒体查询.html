@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+        /* @media(max-width: 500px){ */
+            /* 当宽度小于500时执行 */
+            /* .box{
+                background-color: blue;
+            }
+        } */
+        /* @media(min-width:500px) and (max-width: 1000px){ */
+            /* 当宽度在500-1000时执行 */
+            /* .box{
+                background-color: blue;
+            }
+        } */
+        @media(orientation: portrait){
+            /* 竖屏 */
+            .box{
+                background-color: red;
+            }
+        }
+        @media(orientation: landscape){
+            /* 横屏 */
+            .box{
+                background-color: blue;
+            }
+        }
+        @media(-webkit-device-pixel-ratio:3){
+            /* DPR为选择条件 */
+            .box{
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
