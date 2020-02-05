@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let school = "黑大"
+        let obj1 = {
+            name: "小a",
+            age: "20",
+            school:school
+        }
+        console.log(obj1);
+
+        let obj2 = {//当外部变量与想要引用的变量相同时可用
+            name: "小a",
+            age: "20",
+            school
+        }
+        console.log(obj2);
+        
+        let obj3 = {
+            name: "小a",
+            age: "20",
+            school,
+            showInfo(){
+                console.log(this.name);
+            }
+        }
+        obj3.showInfo();
+
+        let thisName = "name";
+        let obj4 = {//属性名表达式
+            name:"小b"
+        }
+        console.log(obj4[thisName]);//对象的属性的一种引用方式
+        
+        let a = 3;
+        console.log(Object.is(a,3));  
+
+        let arr = [];
+        let arr1 = [];
+        console.log(Object.is(arr,arr1));        
+        //特例一
+        console.log(-0 === +0);
+        console.log(Object.is(-0,+0));
+        //特例二
+        console.log(NaN === NaN);
+        console.log(Object.is(NaN,NaN));
+        
+
+        let obj5 ={
+            name:"小a",
+        }
+        let obj6 ={
+            age:20,
+        }
+        let obj7 ={
+            school:"黑大",
+            student:{
+                name:"小b"
+            }
+        }
+        Object.assign(obj5,obj6,obj7);//相当于把后面所有对象都合并到第一个中,针对于一维赋值，对于多维无效(更改前后对象)
+        console.log(obj5,obj6,obj7);
+        obj7.student.name = "小c";
+        console.log(obj5);
+        
+
+        let obj8 = {
+            name:"小a"
+        }
+        console.log("name" in obj8);//判断对象中是否有该属性
+        console.log(obj8.hasOwnProperty("name"));
+
+        function Person(){
+            this.name = "小b";
+            this.school="黑大"
+        }
+        Person.prototype.school = "理工";
+        let student = new Person();
+        console.log(student.school);//原型链
+        
+        console.log("school" in student);//in方法会判断当前对象有无？如果没有则进而查找其原型
+        console.log(student.hasOwnProperty("school"));//hasOwnProperty方法仅判断当前对象有无
+        
+        
+        
+
+        
+        
+        
+    </script>
+
+</body>
+
+</html>

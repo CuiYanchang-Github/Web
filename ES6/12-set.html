@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let setArr = new Set();
+        // setArr.add(1);
+        // setArr.add("hello");
+        // setArr.add(2);//set()中不允许添加的值有重复,可利用该特性进行数组去重
+        // // setArr.delete(1);
+        // // setArr.clear();
+        // console.log(setArr.size);
+        // console.log(setArr);
+        // // console.log(setArr.has("ahello"));
+        // for(let val of setArr){
+        //     console.log(val);
+        // }
+        let ws = new WeakSet();//成员只能是对象，而不能是其他类型的值。add()增加值
+        ws.add({name:"xx"});
+        // ws.add("hello")
+        console.log(ws);
+        
+
+        // let arr = [1,2,3,4,4,5,6];
+        // let setArr = new Set(arr);
+        // console.log(Array.from(setArr));//转换成数组
+        // console.log(setArr);
+
+
+        
+        
+    </script>
+</body>
+</html>

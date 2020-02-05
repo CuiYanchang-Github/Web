@@ -74,8 +74,33 @@
     
     // let [a,b] = ["hello","world"]
     
+    let arr6 = ["a","b","c","d","e"];
+    let arr7 = arr6.map(function(val,key,arr){//保证前后数组长度相同，不满足判断条件的不返回值空位(undefined)
+      if(val!="c"){
+        return val;
+      }
+    })
+    console.log(arr7);
 
+    let arr8 = arr6.filter(function(val,key,arr){//不保证前后数组长度相同，只保留return返回的值
+      if(val!="c"){
+        return val;
+      }
+    })
+    console.log(arr8);
     
+    let arr_1 = [,1,2,3,4,5,6]
+    let boo = arr_1.some(function(val,key,arr){//有一个满足就为真
+      console.log(val);
+      return val>4;
+    })
+    console.log(boo);
+    
+    let boo1 = arr_1.every(function(val,key,arr){//必须全满足才可以
+      console.log(val);
+      return val>4;
+    })
+    console.log(boo1);
   </script>
 </body>
 </html>
