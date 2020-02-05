@@ -717,7 +717,7 @@ function updateDays(type,year,month,day){
 function getFirstDay(type){
     day=1;
     switch (type) {
-        case 1:
+        case 1:zyy
             day=numToSimp(day);
             break;
         case 2:

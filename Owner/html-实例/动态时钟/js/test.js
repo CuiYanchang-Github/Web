@@ -22,9 +22,9 @@ $(document).ready(function () {
     {
         var ele="<audio controls loop autoplay><source src='sound/"+config.sound_name+"'></audio>"
         $("body").append(ele);
-        //$("audio source").attr('src','sound/'+config.sound_name);
-        //$("audio").css("display","block");
-        //$("audio").attr("autoplay","");
+        $("audio source").attr('src','sound/'+config.sound_name);
+        $("audio").css("display","block");
+        $("audio").attr("autoplay","");
     }
 
 
