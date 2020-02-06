@@ -24,13 +24,13 @@
         // IE6, IE5 浏览器执行代码
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
       }
-      //第二部向服务器发送请求
+      //第二步向服务器发送请求
       xmlhttp.open("GET", "https://api.myjson.com/bins/15d67w", true);
       //将请求发送到服务器，使用XMLHttpRequest对象的open()和send()方法 true（异步）或 false（同步）
       xmlhttp.send();
       //第三步响应返回结果
       xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {//表示准备和请求成功
           var res = JSON.parse(xmlhttp.responseText)
           console.log(res.name)
         }
