@@ -1,0 +1,62 @@
+#div1 {
+  background-color: red;
+}
+
+#box {
+  color: red;
+}
+#box #box1 {
+  font-size: 12px;
+}
+#box:hover {
+  color: red;
+}
+#box-header {
+  font-size: 10px;
+}
+#box-footer {
+  background-color: #fff;
+}
+
+#div3 {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+
+#div4 {
+  width: 400px;
+  height: 400px;
+  background-color: red;
+  font-size: 20px;
+}
+
+#div5, #div6 {
+  background-color: green;
+  font-size: 30px;
+  width: 100px;
+}
+
+#div6 {
+  height: 200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*#box2{
+    color: $maincolor;
+}*/
+/*! test3 */
+
+/*# sourceMappingURL=main.css.map */

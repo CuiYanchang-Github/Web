@@ -1,0 +1,49 @@
+$maincolor:red;
+#div1{
+    background-color: $maincolor;
+}
+#box{
+    color: $maincolor;
+    #box1{
+        font-size: 12px;
+    }
+    &:hover{
+        color: red;
+    }
+    &-header{
+        font-size: 10px;
+    }
+    &-footer{
+        background-color: #fff;
+    }
+}
+
+/*#box2{
+    color: $maincolor;
+}*/
+/*! test3 */
+
+@mixin foo($num,$col) {
+    width: $num;
+    height: $num;
+    background-color: $col;
+}
+#div3{
+    @include foo($col:red,$num:200px,);
+}
+#div4{
+    @include foo(400px,red);
+    font-size: 20px;
+}
+
+#div5{
+    background-color: green;
+    font-size: 30px;
+    width: 100px;
+}
+#div6{
+    @extend #div5;
+    height: 200px;
+}
+
+@import "./base.scss";
