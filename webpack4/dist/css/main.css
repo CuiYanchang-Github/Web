@@ -1,29 +1,43 @@
+/*! fellow37 */
 #div2 {
-  background-color: yellow; }
-#div1{
-    width: 400px;
-    height: 400px;
-    background-color: blueviolet;
+  background-color: yellow;
 }
-#div2{
-    width: 400px;
-    height: 400px;
-    background-image: url(http://127.0.0.1:8081/images/4312873c0a3b868afc01c950d1cf480e.jpg);
-    background-repeat: no-repeat ;
-    transform: rotate(30deg);
+
+#div1 {
+  height: 400px;
+  width: 400px;
+  background-color: gray;
 }
+
+#div2 {
+  height: 400px;
+  width: 400px;
+  background-image: url(http://127.0.0.1:8081/images/4312873c0a3b868afc01c950d1cf480e.jpg);
+  background-repeat: no-repeat;
+  transform: rotate(30deg);
+  box-shadow: 1px 1px 1px black;
+}
+
 ::-webkit-input-placeholder {
-    color: gray;
-  }
+  color: gray;
+}
+
 ::-moz-placeholder {
-    color: gray;
-  }
+  color: gray;
+}
+
 :-ms-input-placeholder {
-    color: gray;
-  }
+  color: gray;
+}
+
 ::-ms-input-placeholder {
-    color: gray;
-  }
+  color: gray;
+}
+
 ::placeholder {
-    color: gray;
-  }
+  color: gray;
+}
+
+#div10 {
+  color: red;
+}
