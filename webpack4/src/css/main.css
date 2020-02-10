@@ -1,0 +1,15 @@
+#div1{
+    width: 400px;
+    height: 400px;
+    background-color: blueviolet;
+}
+#div2{
+    width: 400px;
+    height: 400px;
+    background-image: url(./image/slider2.jpg);
+    background-repeat: no-repeat ;
+    transform: rotate(30deg);
+}
+::placeholder {
+    color: gray;
+  }

@@ -1,0 +1,29 @@
+#div2 {
+  background-color: yellow; }
+#div1{
+    width: 400px;
+    height: 400px;
+    background-color: blueviolet;
+}
+#div2{
+    width: 400px;
+    height: 400px;
+    background-image: url(http://127.0.0.1:8081/images/4312873c0a3b868afc01c950d1cf480e.jpg);
+    background-repeat: no-repeat ;
+    transform: rotate(30deg);
+}
+::-webkit-input-placeholder {
+    color: gray;
+  }
+::-moz-placeholder {
+    color: gray;
+  }
+:-ms-input-placeholder {
+    color: gray;
+  }
+::-ms-input-placeholder {
+    color: gray;
+  }
+::placeholder {
+    color: gray;
+  }
