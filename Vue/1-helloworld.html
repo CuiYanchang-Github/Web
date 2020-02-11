@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">{{ str1+str2 }}</div>
+    <div id="box"></div>
+    <script>
+        // let num = 0;
+        // let oBox = document.getElementById("box");
+        // oBox.innerText = num;
+
+        let app = new Vue({//vue可以直接操纵数据
+            el:"#app",//挂载点 element
+            data:{
+                str1:"hello",
+                str2:"world!"
+
+            }
+        })
+    </script>
+</body>
+</html>
