@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+     <button @click="addHandle">add</button>
+     <p>{{sum}}</p>
+     <p>{{testSum}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+              sum:0
+            },
+            methods:{
+                addHandle(){
+                    ++this.sum;
+                }
+            },
+            computed:{
+              testSum(){//预期结果有关联的变化时才会执行函数
+                  return this.sum + 1;
+              }
+            }
+        })
+    </script>
+</body>
+
+</html>

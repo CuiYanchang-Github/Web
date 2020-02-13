@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+      <!-- <button v-on:click="clickHandle">add</button> -->
+      <!-- v-on 可缩写为下方代码 -->
+      <button @click="clickHandle">add</button>
+      <p>{{num}}</p>
+      <div id="div1" @click.once="div1Click('1',$event)">
+          <!-- once 修饰符-只触发一次事件 -->
+        <div id="div2" @click.stop="div2Click($event)"></div>
+      </div>
+      <a href="https://www.baidu.com" v-on:click.prevent="aHandle">百度</a>
+      <input type="text" v-on:keyup.enter="inputHandle">
+        <!-- 键修饰符，键别名,表示敲回车键时触发事件 -->
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {num:0},
+            methods:{
+                clickHandle(){//es6简写方式 = clickHandle:function()
+                    console.log(this);
+                    this.num++;
+                },
+                div1Click(i,e){
+                    console.log("div1");
+                    console.log(i,e);
+                },
+                div2Click(e){
+                    console.log("div2");//出现事件冒泡
+                    console.log(e);
+                    // e.stopPropagation();//1.通过原生方法阻止冒泡 2.通过修饰符stop来调用原生方法
+                },
+                aHandle(e){
+                    console.log("百度");
+                    // e.preventDefault();//1.通过原生方法阻止a标签默认行为 2.通过修饰符prevent来调用原生方法
+                },
+                inputHandle(){
+                    console.log("input");
+                    
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

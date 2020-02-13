@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="box" v-fellow="test">hello</div>
+    </div>
+    <script>
+        Vue.directive("fellow",{//两个参数 第一个：指令名称 第二个：配置项
+            inserted(el,binding,vnode){//绑定到节点  vnode表示虚拟DOM
+                console.log(el);
+                console.log(binding);
+                console.log(vnode);
+                el.style.color = binding.value;
+            }
+        })
+        new Vue({
+            el: "#app",
+            data: {
+              test:"red"
+            },
+            methods:{
+              
+            },
+            computed:{
+            
+            }
+        })
+    </script>
+</body>
+
+</html>
