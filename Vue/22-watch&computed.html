@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    firstName:{{firstName}}-lastName:{{lastName}}
+    <p>{{fullName}}</p>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        firstName: 'Foo',
+        lastName: 'Bar'
+      },
+      computed: {
+        fullName: function () {
+          return this.firstName + ' ' + this.lastName
+          //根据属性依赖的结果变化而计算，firstName lastName二者任一发生变化就重新计算
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

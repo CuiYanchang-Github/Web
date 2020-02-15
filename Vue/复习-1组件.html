@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <com1 v-bind:username.sync="studentName"></com1>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+       studentName:"小刚"
+      },
+      methods:{
+        // changeName(newName){
+        //   console.log(newName);
+        //   this.studentName = newName;
+        // }
+      },
+      components:{
+        com1:{
+          props:['username'],
+          data() {//组件中的data是一个方法，而不是属性
+            return {
+              num:666
+            }
+          },
+          template://组件里只能写一个根标签
+          `
+            <div>
+              <h1>{{num}}hello{{username}}</h1> 
+              <button @click="showProps">show</button>
+            </div>
+          `,
+          methods: {
+            showProps(){
+              // this.username = 'hello'
+              // console.log(this.username)
+              // console.log(this.num);
+              this.$emit("update:username",'小明')
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

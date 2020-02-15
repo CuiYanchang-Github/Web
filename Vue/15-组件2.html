@@ -26,7 +26,7 @@
       },
       components:{
         com1:{
-          props:['comname'],//通过 Prop 向子组件传递数据 当一个值传递给一个 prop的时候，它就变成了那个组件实例的一个属性。
+          props:['comname'],//通过 Prop 向子组件传递数据（单向） 当一个值传递给一个 prop的时候，它就变成了那个组件实例的一个属性。
           template:`
             <div>
               <h1>我的名字是:{{comname}}</h1>  
@@ -35,6 +35,8 @@
           `,
           methods: {
             changeName(){
+              // 通过绑定一个自定义事件 testhandle 与父组件的方法 parentHandle 绑定，
+              // 并在组件内部通过$emit触发,实现在子组件中修改父组件对应属性值 -- 自下而上
               this.$emit('testhandle',"小张")
             }
           }
