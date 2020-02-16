@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import TvPlay from '../views/tvplay/TvPlay.vue'
+import TvPlay from '../views/tvplay/TvPlay.vue'//预加载
 
 Vue.use(VueRouter)
 
@@ -10,11 +10,22 @@ const routes = [
     name: 'TvPlay',
     component: TvPlay
   },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
+  {
+    path: '/music',
+    name: 'Music',
+    component: () => import('../views/music/Music.vue')//懒加载
+  },
+  {
+    path: '/book',
+    name: 'Book',
+    component: () => import('../views/book/Book.vue')
+  },
+  {
+    path: '/talk',
+    name: 'Talk',
+    component: () => import('../views/talk/Talk.vue')
+  },
+  
 ]
 
 const router = new VueRouter({
