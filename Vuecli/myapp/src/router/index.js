@@ -25,6 +25,11 @@ const routes = [
     name: 'Talk',
     component: () => import('../views/talk/Talk.vue')
   },
+  {
+    path: '/tvdetail/:id',
+    name: 'TvDetail',
+    component: () => import('../views/tvplay/TvPlayDetail.vue')
+  },
   
 ]
 
