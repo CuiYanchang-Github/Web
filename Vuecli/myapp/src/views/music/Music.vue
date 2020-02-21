@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="music-player">
-      <aplayer :music="music" />
+      <aplayer :music="music"/>
     </div>
     <div class="music-list">
       <ul>
@@ -75,6 +75,9 @@ export default {
 };
 </script>
 <style scoped>
+ .music-player span{
+  display:flex;
+}
 .music-list {
   margin-top: 30px;
 }

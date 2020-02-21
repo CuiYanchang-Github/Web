@@ -4,6 +4,7 @@
       <li @click="goDetail(item.id)" class="clearfix" v-for="item in dataList" :key="item.id">
         <div class="left">
           <img v-bind:src="'https://images.weserv.nl/?url='+item.cover.url" alt />
+          <!-- 'https://images.weserv.nl/?url='解决防盗链问题 -->
         </div>
         <div class="right">
           <p class="title">{{item.title}}</p>

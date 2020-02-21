@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <!-- js文件是有加载顺序的 建议按以上顺序引入 -->
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    // 无状态组件 => 函数组件
+    function Foo() {//构造函数 函数名首字母大写
+        return(
+            <div>
+                <h1>hello world</h1>
+                <h1>Cui Yanchang</h1>
+            </div>
+        )
+        
+    }
+    ReactDOM.render(
+        <Foo/>,//组件的引用方式一定是标签
+        document.getElementById("root")
+    )
+</script>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "hello world!";
+        let str1 = "hello wworld!";
+        let str2 = "hello wwworld!";
+        let str3 = "hello waaorld!";
+        let str4 = "img.jpg";
+        let str5 = "ello world!"
+        let str6 = "allo world!"
+        let str7 = "你好c"; 
+        let str8 = "hello 12 world";
+
+        // 查询字符串中是否有字母w
+        console.log(str.indexOf('w'));//结果：6
+        console.log(str.includes('w'));//结果：true
+
+        //正则表达式
+        let reg = /w/;
+        let reg2 = new RegExp("w");//实例化对象的创建方法
+        console.log(reg.test(str));//结果：true
+        console.log(reg.exec(str));//结果：["w", index: 6, input: "hello world!", groups: undefined]
+        
+        let reg3 = /w{1}/ //w{1}表示只匹配一个w
+        let reg4 = /w{2}/ //w{2}表示匹配两个连续的w
+        console.log(reg3.exec(str));//结果：["w", index: 6, input: "hello world!", groups: undefined]
+        console.log(reg4.exec(str));//结果：null
+   
+        let reg5 = /w{2,3}/ //w{2,3}表示匹配两个或三个连续的w - 贪心匹配，以多为准
+        let reg6 = /w{2,}/ //w{2,}表示匹配两个以上连续的w - 贪心匹配，以多为准
+        console.log(reg5.exec(str1));//结果：["ww", index: 6, input: "hello wworld!", groups: undefined]
+        console.log(reg5.exec(str2));//结果：["www", index: 6, input: "hello wwworld!", groups: undefined]
+        console.log(reg6.exec(str2));//结果：["www", index: 6, input: "hello wwworld!", groups: undefined]
+
+        // * , + , ？
+        // *表示0次或者多次，等同于{0,}，即 c* 和 c{0,} 是一个意思。
+        let reg7 = /w+/;
+        console.log(reg7.exec(str2));//结果：["www", index: 6, input: "hello wwworld!", groups: undefined]
+        
+        // +表示一次或者多次，等同于{1,}，即 c+ 和 c{1,} 是一个意思。
+        let reg8 = /w+/;
+        console.log(reg8.exec(str2));//结果：["www", index: 6, input: "hello wwworld!", groups: undefined]
+        
+        // ?表示0次或者1次，等同于{0,1}，即 c? 和 c{0,1} 是一个意思。
+        let reg9 = /w?/;
+        console.log(reg9.exec(str));//结果：["", index: 0, input: "hello world!", groups: undefined]
+        
+        let reg10 = /wa{2,}/
+        console.log(reg10.exec(str3));//结果：["waa", index: 6, input: "hello waaorld!", groups: undefined]
+
+        // 贪心与非贪心（尽可能少的取值）组成形式如下：{n,}?, *?, +?, ??, {m,n}?
+        let reg11 = /w{1,2}?/
+        console.log(reg11.exec(str1));//结果：["w", index: 6, input: "hello wworld!", groups: undefined]
+        
+        // 验证开头或结尾/^开头,结尾$/
+        let reg12 = /jpg$/;
+        let reg13 = /^img/;
+        console.log(reg12.exec(str4));//结果：["jpg", index: 4, input: "img.jpg", groups: undefined]
+        console.log(reg13.exec(str4));//结果：["img", index: 0, input: "img.jpg", groups: undefined]
+
+        // ‘.’会匹配字符串中除了换行符\n之外的所有字符，
+        let reg14 = /./;
+        console.log(reg14.exec(str));//结果：["h", index: 0, input: "hello world!", groups: undefined]
+        let reg15 = /.+/;
+        console.log(reg15.exec(str));//结果：["hello world!", index: 0, input: "hello world!", groups: undefined]
+
+        // 二选一或运算 |
+        let reg16 = /e|o/;
+        let reg17 = /^e|o.+/;
+        // 括号()
+        let reg18 = /^(e|o).+/;
+        console.log(reg16.exec(str));//结果：["e", index: 1, input: "hello world!", groups: undefined]
+        console.log(reg17.exec(str));//结果：["o world!", index: 4, input: "hello world!", groups: undefined]
+        console.log(reg18.exec(str5));//结果：["ello world!", "e", index: 0, input: "ello world!", groups: undefined]
+        
+        // 字符集合[abc] [abc]表示a或者b或者c中的任意一个字符。相当于/a|b|c/
+        let reg19 = /^[abc]/;
+        let reg20 = /[a-z]/;
+        let reg21 = /[A-Z]/;
+        let reg22 = /^[a-zA-Z][a-zA-Z0-9_]+/;//判断是否是合法命名方式——以字母开头，后面是数字、字母、下划线任意字符
+        // 反字符集合[^abc]
+        let reg23 = /[^abc]/;//表示不能是a，b或者c中的任何一个。
+        console.log(reg23.exec(str6));//结果：["l", index: 1, input: "allo world!", groups: undefined]
+
+        // 边界\b 与非边界\B
+        let reg24 = /d\b/;// 表示右边界以d结尾
+        let reg25 = /\Bh/;// 表示左边界不以h开头，一个字符串以空格分为两部分相当于两个边界
+        console.log(reg24.exec(str));
+        console.log(reg25.exec(str));
+
+        // 数字\d 与非数字\D
+        let reg26 = /\d/;
+        let reg27 = /[0-9]/
+        let reg28 = /\D/;
+        console.log(reg28.exec(str));//结果：["h", index: 0, input: "hello world!", groups: undefined]
+        
+        // 空格
+        // \f匹配换页符，\n匹配换行符，\r匹配回车，\t匹配制表符，\v匹配垂直制表符
+        // \s匹配单个空格，等同于[\f\n\r\t\v]。
+        let reg29 = /\s.+/;// 表示空格开头及以后所有内容
+        let reg30 = /\S.+/;// 表示非空格及除了\n以外所有内容
+        console.log(reg30.exec(str));//结果：["hello world!", index: 0, input: "hello world!", groups: undefined]
+        
+        // 单词字符\w 等同于字符集合[a-zA-Z0-9_] \W(非)等效于[^a-zA-Z0-9_]
+        let reg31 = /\w+/;
+        let reg32 = /\W/;
+
+        //反向引用
+        let reg33 = /(\w)/;
+        let reg34 = /\w/;
+        let reg35 = /(\w)(\w)/;
+        let reg36 = /(\w)(\w)\1\2/;//ABAB
+        let reg37 = /(?:\w)/;//表示不保存当前子集
+
+        let str9 = "hello helloww world";
+        let reg38 = /hello(?=ww)/;//匹配hello,条件是后面紧跟ww
+        let reg39 = /hello(?!ww)/;//匹配hello,条件是后面不紧跟ww
+
+        // 匹配元字符 - 要匹配元字符，只要在前面加上一个“\”即可
+        let reg40 = /\.jpg$/;
+
+        // 正则表达式的修饰符
+        let reg41 = /R/i;// 表示忽略大小写
+
+        let str10 = "hello\nworld";
+        let reg42 = /^w/m;// 行首行尾，修饰符m,表示回车之后的字母也默认为是当前字符串的首字母
+
+        // match方法
+        let reg43 = /w/;
+        console.log(str.match(reg43));//结果：["w", index: 6, input: "hello world!", groups: undefined]
+        // replace方法 - 替换
+        let reg44 = /l/g;// g 表示全部，所有匹配成功的结果全部选择
+        console.log(str.replace(reg44,"-"));//结果：he--o wor-d!
+
+        let reg45 = /(?<a>\w+) (?<b>\w+)/;//表示分组
+        console.log(str.replace(reg45,"$2-$1"));
+        console.log(reg45.exec(str));
+        //结果：["hello world", "hello", "world", index: 0, input: "hello world!", groups: {…}]
+
+
+        //习题
+        // 30CAC0040 取出40
+        // 3SFASDF92 取出92
+
+        // let str1 = "30CAC0040";
+        // let str2 = "3SFASDF92";
+
+        // let reg = /\d{2}$/ // 表示匹配数字，匹配第一个成功后后面连续两个可匹配项并且以此结尾
+        // console.log(reg.exec(str2));
+
+
+        // let str = "蓝      色    理     想   ";
+        // console.log(str);
+        // let reg = /\s+/g;// 表示选中全部的一个或多个空格的匹配项
+        // // console.log(reg.exec(str));
+        // console.log(str.replace(reg," "));
+        
+
+        
+
+    </script>
+</body>
+</html>
