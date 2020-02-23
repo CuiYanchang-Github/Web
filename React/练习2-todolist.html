@@ -14,6 +14,9 @@
     .active{
       background-color: gray;
     }
+    .del{
+      display: none;
+    }
   </style>
   <script src="./js/react.development.js"></script>
   <script src="./js/react-dom.development.js"></script>
@@ -28,17 +31,37 @@
     class ToDoForm extends React.Component{
       constructor(props){
         super(props)
+        this.state = {
+          formObj:{
+            info:"",
+            time:"",
+            count:0
+          }
+        }
+      }
+      //任务五添加行
+      addHandle(){
+        this.props.addList(this.state.formObj)
+      }
+      //接收表单value
+      inpChange(e){
+        this.setState({
+          formObj:{
+            ...this.state.formObj,
+            [e.target.name]:e.target.value
+          }
+        })
       }
       render(){
         return(
           <div className="form-bar">
             <form className="form-inline">
-              <input name="info" type="text" className="form-control mb-2 mr-sm-2" placeholder="待办事项" />
-              <input name="time" type="date" className="form-control mb-2 mr-sm-2" />
+              <input onChange={this.inpChange.bind(this)} name="info" type="text" className="form-control mb-2 mr-sm-2" placeholder="待办事项" />
+              <input onChange={this.inpChange.bind(this)} name="time" type="date" className="form-control mb-2 mr-sm-2" />
               <div className="input-group mb-2 mr-sm-2">
-                <input name="count" type="text" className="form-control" placeholder="待代办时间" />
+                <input onChange={this.inpChange.bind(this)} name="count" type="text" className="form-control" placeholder="待代办时间" />
               </div>
-              <button type="button" className="btn btn-primary mb-2">Submit</button>
+              <button onClick={this.addHandle.bind(this)} type="button" className="btn btn-primary mb-2">Submit</button>
             </form>
           </div>
         )
@@ -50,7 +73,8 @@
         super(props),
         this.state={
           countSum:0, //选中项的总和
-          checkArr:{} //选中的行
+          checkArr:{}, //选中的行,
+          isDelCheck:false//是否删除选中项
         }
       }
       //选中行事件
@@ -66,41 +90,59 @@
           //如果为假移除当前id
           delete thisCheckArr[id]
         }
+
         //第三步 计算被选中行用时总和
         for(let item in thisCheckArr){
           sum+=thisCheckArr[item]
         }
-        //第四步 覆盖当前选中列表checkArr
+
+
+        //第三步 覆盖当前选中列表checkArr
         this.setState({
           checkArr:thisCheckArr,
           countSum:sum
         })
+        
+      }
+
+      //任务四删除选中行
+      delCheck(){
+        //第一步修改删除选中指令 （下达给每一行删除选中行命令）
+        //第二步清空当前组件中选中状态
+        this.setState({
+          isDelCheck:true,
+          countSum:0, //选中项的总和
+          checkArr:{} //选中的行,
+        })
+        
+        
       }
 
       render(){
         // 任务一：实现列表渲染
-        // 第1步：从父组件（ToDoList）接收到props参数-items
+        // 第1步：从父组件（ToDoList）接收到props参数 items
         let thisDataList = this.props.items;
-        // 第2步：遍历数组（thisDataList）实现多条记录渲染
+        // 第2部：遍历数组（thisDataList）实现多条记录渲染
         let todoline = thisDataList.map((val,index)=>{
-          return <ToDoLine checkWitch={this.tableCheck.bind(this)} itemObj={val} key={index}/>
+          return <ToDoLine delCheckOrder={this.state.isDelCheck} checkWitch={this.tableCheck.bind(this)} itemObj={val} key={index}/>
         })
+        
         return(
           <div className="table-bar">
             <table className="table">
             <thead className="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">代办事项</th>
-                    <th scope="col">代办时间</th>
-                    <th scope="col">预计用时</th>
-                    <th scope="col">操作</th>
+                  <th scope="col">#</th>
+                  <th scope="col">代办事项</th>
+                  <th scope="col">代办时间</th>
+                  <th scope="col">预计用时</th>
+                  <th scope="col">操作</th>
                 </tr>
             </thead>
             <tbody>
                 {todoline}
                 <tr>
-                    <td><button type="button" className="btn btn-primary btn-sm">删除选中</button></td>
+                    <td><button onClick={this.delCheck.bind(this)} type="button" className="btn btn-primary btn-sm">删除选中</button></td>
                     <td colSpan="4">{this.state.countSum}</td>
                 </tr>
             </tbody>
@@ -115,7 +157,8 @@
       constructor(props){
         super(props)
         this.state={
-          isCheck:false
+          isCheck:false,//用来验证当前行是否选中状态
+          isDel:false//用来判断当前行是否被移除
         }
       }
       //任务二单行选中效果
@@ -128,9 +171,33 @@
         this.props.checkWitch(this.props.itemObj.id,!this.state.isCheck,this.props.itemObj.count)
       }
 
+      //任务三删除当前行
+      delLine(e){
+        // 第一步修改当前行的删除状态
+        this.setState({
+          isDel:true
+        })
+
+        //第二步如果当前行为选中状态通知父组件取消选中状态
+        if(this.state.isCheck){
+          this.props.checkWitch(this.props.itemObj.id,false,this.props.itemObj.count)
+        }
+        if(e){
+          e.stopPropagation();
+        }
+      }
+      
       render(){
+        let lineClass = ""
+        if(this.state.isDel || (this.props.delCheckOrder && this.state.isCheck)){
+          lineClass = "del";
+        }else if(this.state.isCheck){
+          lineClass = "active";
+        }else{
+          lineClass = "";
+        }
         return(
-          <tr className={this.state.isCheck?"active":""} onClick={this.checkLine.bind(this)}>
+          <tr className={lineClass} onClick={this.checkLine.bind(this)}>
             <th scope="row">
               <input type="checkbox" readOnly checked={this.state.isCheck}/>
             </th>
@@ -138,7 +205,7 @@
             <td>{this.props.itemObj.time}</td>
             <td>{this.props.itemObj.count}</td>
             <td>
-              <button type="button" className="btn btn-primary btn-sm">删除</button>
+              <button onClick={this.delLine.bind(this)} type="button" className="btn btn-primary btn-sm">删除</button>
             </td>
           </tr>
         )
@@ -172,10 +239,21 @@
           ]
         }
       }
+      addListHandle(obj){
+        let thisDataList = this.state.dataList;
+        obj.id = thisDataList[thisDataList.length-1].id+1;
+        obj.count = Number.parseInt(obj.count)
+        console.log(obj);
+        
+        thisDataList.push(obj)
+        this.setState({
+          dataList:thisDataList
+        })        
+      }
       render(){
         return(
           <div className="container">
-            <ToDoForm/>
+            <ToDoForm addList={this.addListHandle.bind(this)}/>
             <ToDoTable items={this.state.dataList}/>
           </div>
         )
