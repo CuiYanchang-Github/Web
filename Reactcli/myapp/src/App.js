@@ -38,7 +38,7 @@ function App() {
       <Router>
         <Link to="/">page1</Link>|
         <Link to="/page2/xiaoming">page2</Link>|
-        <Link to="/page2/child1">page2</Link>|
+        <Link to="/page2/child1">child1</Link>|
         <Link to="/page3/xiaob">page3</Link>|
         <Link to="/page4">page4</Link>|
         <MenuLink to="/page15" label="page15" />|

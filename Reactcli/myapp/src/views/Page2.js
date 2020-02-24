@@ -9,6 +9,7 @@ export default class Page2 extends Component {
     }
   }
   componentDidMount(){
+    //componentDidMount - 在render之后调用一次,component已经初始化完成了,在组件初始化完成之后,再会请求数据,因此不会报什么警告或者错误
     // let url1 = "https://www.baidu.com/getuser"
     let url2= "https://www.taobao.com/getuser"
     axios.get(url2).then((res)=>{

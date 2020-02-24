@@ -3,7 +3,7 @@ import Mock from 'mockjs'
 Mock.mock("https://www.baidu.com/getuser",{
   "dataList|10":[{
     "userName":"小明",
-    "string|1-10": "hello",
+    "string|1-10": "hello",//随机返回1-10遍‘hello’
     "num":'@integer(60, 100)',
     "date":'@date("yyyy-MM-dd")',
     "dis":'@cparagraph',
