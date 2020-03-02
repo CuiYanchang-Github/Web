@@ -23,6 +23,7 @@
 </template>
 
 <script>
+//引入 请求方法
 import { addStudent } from '@/api/student'
 export default {
   data() {
@@ -35,6 +36,7 @@ export default {
     };
   },
   methods: {
+    //调用方法 发送请求
     onSubmit(){
       console.log(this.form)
       addStudent({...this.form}).then((res)=>{
