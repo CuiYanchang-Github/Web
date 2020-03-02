@@ -14,9 +14,9 @@ const router = new Router({
 
 //小程序初始化
 cloud.init({
-  secretId: 'AKIDwh03sRhJbfVAamvTyEKCsITO5XkhcwEI',
-  secretKey: 'xgAPPBk5Azby6yd5JJ5dz6yfBRSDk7F7',
-  env: "test-179231"
+  secretId: 'AKIDhV7avK5TFshIenIHXIvXuMcfU8XmgZWR',
+  secretKey: 'tLYGlh2898ZN0JPIwLiqkQuDLEyNfniV',
+  env: "konrad-test-dev-cc0o7"
 });
 
 //跨域配置（相当于允许任何站点访问）

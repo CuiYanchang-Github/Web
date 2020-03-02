@@ -3,7 +3,7 @@ const Router = require('koa-router');
 let router = new Router();
 const cloud = require('tcb-admin-node');
 const db = cloud.database();
-const studentColl = db.collection("fellow_student")
+const studentColl = db.collection("Konrad_Student")
 
 router.post("/add",async (ctx,next)=>{
   console.log(ctx.request.body)
