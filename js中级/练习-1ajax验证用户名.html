@@ -11,19 +11,19 @@
   <input type="text" id="inp">
   <div id="info"></div>
   <script>
-    // $("#inp").on("keyup",function(){
-    //   var thisVal = $(this).val();
-    //   var infoText = "可用"
-    //   $.get("https://api.myjson.com/bins/l8pz0",function(res){
-    //     var names = res.name;
-    //     for(var i=0;i<names.length;i++){
-    //       if(names[i]== thisVal){
-    //         infoText = "不可用";
-    //       }
-    //     }
-    //     $("#info").text(infoText)
-    //   })
-    // })
+    $("#inp").on("keyup",function(){
+      var thisVal = $(this).val();
+      var infoText = "可用"
+      $.get("https://api.myjson.com/bins/l8pz0",function(res){
+        var names = res.name;
+        for(var i=0;i<names.length;i++){
+          if(names[i]== thisVal){
+            infoText = "不可用";
+          }
+        }
+        $("#info").text(infoText)
+      })
+    })
 
     // $("#inp").on("keyup",function(){
     //   var thisVal = $(this).val();

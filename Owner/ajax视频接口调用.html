@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>笑话</title>
+    <style>
+        #box{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        #box>div{
+            width: 30%;
+            height: 600px;
+            overflow: auto;
+            border: 1px solid;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #box>div>div{
+            width: 90%;
+            background-color: pink;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        #box>div>div>img{
+            width: 90%;
+            margin-left: 5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>笑话</h1>
+    <button id="btn">查看详情</button>
+    <div id="box">
+        <div id="txt"></div>
+        <div id="img"></div>
+        <div id="gif"></div>
+    </div>
+    <script>
+        function read(){
+            ajax({
+                type:"get",
+                url:"http://route.showapi.com/341-1?showapi_appid=63668&showapi_sign=31c73b7db6b34ed59250ecb5c370b6e2",
+                dataType:"json",
+                success:function(responseData){
+                    var data = responseData.showapi_res_body.contentlist;
+                    // console.log(data);
+                    var html = "";
+                    data.forEach(function(txt){
+                        html += `<div>
+                                    <h3>${txt.title}</h3>
+                                    <p>${txt.text}</p>
+                                </div>`;
+                    });
+                    document.getElementById("txt").innerHTML = html;
+ 
+                }
+            });
+            ajax({
+                type:"get",
+                url:"http://route.showapi.com/341-2?showapi_appid=63668&showapi_sign=31c73b7db6b34ed59250ecb5c370b6e2&page=3",
+                dataType:"json",
+                success:function(responseData){
+                    var data = responseData.showapi_res_body.contentlist;
+                    // console.log(data);
+                    var html = "";
+                    data.forEach(function(txt){
+                        html += `<div>
+                                    <h3>${txt.title}</h3>
+                                    <img src="${txt.img}">
+                                </div>`;
+                    });
+                    document.getElementById("img").innerHTML = html;
+ 
+                }
+            });
+            ajax({
+                type:"get",
+                url:"http://route.showapi.com/341-3?showapi_appid=63668&showapi_sign=31c73b7db6b34ed59250ecb5c370b6e2&page=2",
+                dataType:"json",
+                success:function(responseData){
+                    var data = responseData.showapi_res_body.contentlist;
+                    // console.log(data);
+                    var html = "";
+                    data.forEach(function(txt){
+                        html += `<div>
+                                    <h3>${txt.title}</h3>
+                                    <img src="${txt.img}">
+                                </div>`;
+                    });
+                    document.getElementById("gif").innerHTML = html;
+ 
+                }
+            });
+        }
+        document.getElementById("btn").onclick = read;
+        function ajax(options){
+            options = options || {};
+            var method = (options.type || "GET").toUpperCase(),
+                url = options.url,
+                queryString = null;
+            if(!url)
+                return;
+            if(options.data){
+                queryString = [];
+                for(var attr in options.data){
+                queryString.push(attr + "=" +options.data[attr]);
+                }
+                queryString = queryString.join("&");
+            }
+            if(method === "GET" && queryString){
+                url += "?"+queryString;
+                queryString = "";
+            }
+            var xhr = new XMLHttpRequest();
+            xhr.open(method,url,true);
+            if(method === "POST")
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(queryString);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                if(xhr.status === 200){
+                    var data = xhr.responseText;
+                    if(options.dataType === "json")
+                    data = JSON.parse(data);
+                    options.success && options.success(data);
+                }else{
+                    options.error && options.error(xhr.status);
+                }
+                }
+            }
+            }
+    </script>
+</body>
+</html>
