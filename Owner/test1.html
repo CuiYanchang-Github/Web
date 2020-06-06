@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1. 实现 string的indexOf() 函数。
+
+    给定一个 haystack 字符串和一个 needle 字符串，
+    在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
+    示例 1:
+    输入: haystack = "hello", needle = "ll"
+    输出: 2
+    示例 2:
+    输入: haystack = "aaaaa", needle = "bba"
+    输出: -1 -->
+    <script>
+        
+        function IndexOf1(pStr, cStr, n) {
+            let i;
+            let len1 = pStr.length;
+            let len2 = cStr.length;
+            if (n == undefined || n == null || n == -1) {
+                i = 0;
+            } else if (n > len1 - 1) {
+                return -1;
+            } else {
+                i = n;
+            }
+            if (len2 > len1) {
+                return -1;
+            } else if (len2 == len1) {
+                if (cStr === pStr) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            } else{
+                let tempStr = '';
+                while (i<len1){
+                    tempStr = pStr.substr(i,len2);
+                    if (cStr === tempStr){
+                        return i;
+                    }
+                    i++;
+                }
+                if (i == len1){
+                    return -1;
+                }
+            }
+        }
+        let haystack = "hello";
+        let needle = "ll";
+        console.log(haystack);
+        console.log(needle);
+        console.log(IndexOf1(haystack,needle));
+        
+    </script>
+    <!-- 给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。
+    示例 1:
+    输入: [10,2]
+    输出: 210
+    示例 2:
+    输入: [3,30,34,5,9]
+    输出: 9534330
+    说明: 输出结果可能非常大，所以你需要返回一个字符串而不是整数。 -->
+    [3,30]=>[3],[30] => 3 3| null 0 =>33+=0 null! |330
+    3 4 => 43+=
+    3 3|1 0 =>33 += 10 =>3310
+</body>
+
+</html>
